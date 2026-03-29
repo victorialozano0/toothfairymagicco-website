@@ -11,174 +11,254 @@
   <meta property="og:title" content="Tooth Fairy Magic Co.">
   <meta property="og:description" content="Turning Tiny Teeth Into Big Memories. Adorable milestone t-shirts for babies & families.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://victorialozano0.github.io/tooth_fairy_magic_co-app/">
+  <meta property="og:url" content="https://toothfairymagicco.github.io">
 
   <!-- Pinterest verification (add your meta tag here when ready) -->
   <!-- <meta name="p:domain_verify" content="YOUR_PINTEREST_CODE"/> -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
 
   <style>
-    /* ── VARIABLES ── */
+    /* ══════════════════════════════════════
+       VARIABLES
+    ══════════════════════════════════════ */
     :root {
       --color-purple-1: #9B7ED8;
       --color-purple-2: #C4A6E8;
+      --color-purple-light: #E6D5F5;
       --color-pink-1: #F5A3C7;
       --color-pink-2: #FFD1DC;
+      --color-pink-soft: #FFF0F5;
       --color-lavender: #E6D5F5;
       --color-mint: #B5EAD7;
-      --color-gold: rgba(255, 215, 0, 0.6);
+      --color-gold: #FFD700;
+      --color-gold-soft: #FFF3C4;
+      --color-yellow: #FFC85B;
+      --color-blue-soft: #45B3DF;
       --color-bg-main: #FDFBFF;
       --color-bg-panel: #F8F4FF;
       --color-text-heading: #2D1B4E;
       --color-text-body: #4A3660;
       --color-text-secondary: #7B6899;
-      --shadow-md: 0 4px 12px rgba(155, 126, 216, 0.12);
-      --shadow-lg: 0 8px 24px rgba(155, 126, 216, 0.15);
+      --color-white: #ffffff;
+      --shadow-sm: 0 2px 8px rgba(155, 126, 216, 0.08);
+      --shadow-md: 0 4px 16px rgba(155, 126, 216, 0.12);
+      --shadow-lg: 0 8px 32px rgba(155, 126, 216, 0.18);
+      --radius-sm: 16px;
+      --radius-md: 24px;
+      --radius-lg: 30px;
+      --container: 1100px;
+      --transition: all 0.35s ease;
     }
 
-    /* ── RESET & BASE ── */
+    /* ══════════════════════════════════════
+       RESET & BASE
+    ══════════════════════════════════════ */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--color-text-body);
       background-color: var(--color-bg-main);
-      line-height: 1.6;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; }
 
-    /* ── SPARKLE ANIMATION ── */
+    /* ══════════════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════════════ */
     @keyframes sparkle {
-      0%, 100% { opacity: 0.4; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.3); }
+      0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.4) rotate(15deg); }
     }
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
     }
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
+      from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    @keyframes dashedRotate {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -1000; }
+    }
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
 
-    /* ── HEADER ── */
+    /* ══════════════════════════════════════
+       DASHED BORDER UTILITY (LittleDino style)
+    ══════════════════════════════════════ */
+    .dashed-border {
+      border: 3px dashed var(--color-purple-2);
+      border-radius: var(--radius-lg);
+    }
+    .dashed-border--pink { border-color: var(--color-pink-1); }
+    .dashed-border--gold { border-color: var(--color-yellow); }
+    .dashed-border--mint { border-color: var(--color-mint); }
+    .dashed-border--blue { border-color: var(--color-blue-soft); }
+
+    /* ══════════════════════════════════════
+       DECORATIVE FLOATING ELEMENTS
+    ══════════════════════════════════════ */
+    .floating-decor {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.15;
+    }
+    .floating-decor img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* ══════════════════════════════════════
+       HEADER & NAV
+    ══════════════════════════════════════ */
     .header {
-      background: linear-gradient(135deg, var(--color-purple-1) 0%, var(--color-purple-2) 50%, var(--color-pink-1) 100%);
-      padding: 16px 24px;
+      background: var(--color-white);
+      padding: 0;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 12px rgba(155, 126, 216, 0.3);
+      box-shadow: var(--shadow-sm);
     }
     .header-inner {
-      max-width: 1000px;
+      max-width: var(--container);
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 12px 24px;
     }
-    .logo {
-      font-family: 'Fredoka One', cursive;
-      font-size: 1.4rem;
-      color: white;
+    .logo-link {
+      display: flex;
+      align-items: center;
       text-decoration: none;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    }
+    .logo-header-img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
     }
     .nav-links {
       display: flex;
-      gap: 24px;
+      gap: 8px;
       list-style: none;
+      align-items: center;
     }
     .nav-links a {
-      color: rgba(255, 255, 255, 0.9);
-      text-decoration: none;
-      font-weight: 600;
+      color: var(--color-text-body);
+      font-weight: 700;
       font-size: 0.95rem;
-      transition: color 0.2s;
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: 2px dashed transparent;
+      transition: var(--transition);
     }
-    .nav-links a:hover { color: white; }
+    .nav-links a:hover {
+      color: var(--color-purple-1);
+      border-color: var(--color-purple-2);
+      background: var(--color-bg-panel);
+    }
+    .nav-links a.active {
+      color: var(--color-purple-1);
+      border-color: var(--color-purple-2);
+      background: var(--color-bg-panel);
+    }
 
-    /* ── HERO ── */
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: var(--color-text-heading);
+      padding: 8px;
+    }
+
+    /* ══════════════════════════════════════
+       HERO — Banner con imagen asimétrica
+    ══════════════════════════════════════ */
     .hero {
-      background: linear-gradient(160deg, var(--color-bg-panel) 0%, var(--color-lavender) 40%, var(--color-pink-2) 100%);
-      text-align: center;
-      padding: 80px 24px 60px;
       position: relative;
       overflow: hidden;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(ellipse at 30% 50%, rgba(155, 126, 216, 0.08) 0%, transparent 50%),
-                  radial-gradient(ellipse at 70% 50%, rgba(245, 163, 199, 0.08) 0%, transparent 50%);
-      pointer-events: none;
+    .hero-banner-img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
-    .hero-sparkles {
+    .hero-content {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none;
+      display: flex;
+      align-items: center;
+      z-index: 2;
     }
-    .sparkle {
-      position: absolute;
-      font-size: 1.2rem;
-      animation: sparkle 2s ease-in-out infinite;
+    .hero-content-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 40px 24px 40px 48px;
+      width: 100%;
     }
-    .sparkle:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
-    .sparkle:nth-child(2) { top: 25%; right: 15%; animation-delay: 0.5s; }
-    .sparkle:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 1s; }
-    .sparkle:nth-child(4) { top: 40%; right: 8%; animation-delay: 1.5s; }
-    .sparkle:nth-child(5) { bottom: 30%; right: 25%; animation-delay: 0.3s; }
-
-    .hero-icon {
-      font-size: 4rem;
-      animation: float 3s ease-in-out infinite;
-      margin-bottom: 16px;
+    .hero-text {
+      max-width: 440px;
     }
     .hero h1 {
       font-family: 'Fredoka One', cursive;
       font-size: 2.8rem;
       color: var(--color-text-heading);
       margin-bottom: 8px;
-      position: relative;
+      line-height: 1.2;
     }
     .hero .tagline {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       color: var(--color-text-secondary);
-      font-weight: 600;
+      font-weight: 700;
       font-style: italic;
-      margin-bottom: 32px;
+      margin-bottom: 20px;
     }
     .hero p.description {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--color-text-body);
-      max-width: 600px;
-      margin: 0 auto 40px;
+      margin-bottom: 32px;
+      line-height: 1.8;
     }
 
-    /* ── BUTTONS ── */
+    /* ══════════════════════════════════════
+       BUTTONS (LittleDino dashed style)
+    ══════════════════════════════════════ */
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 14px 32px;
-      border-radius: 24px;
+      border-radius: var(--radius-lg);
       font-family: 'Nunito', sans-serif;
-      font-weight: 700;
+      font-weight: 900;
       font-size: 1.05rem;
       text-decoration: none;
-      transition: all 0.25s ease;
+      transition: var(--transition);
       border: none;
       cursor: pointer;
+      position: relative;
     }
     .btn-primary {
       background: linear-gradient(135deg, var(--color-purple-1) 0%, var(--color-purple-2) 100%);
@@ -186,18 +266,31 @@
       box-shadow: 0 4px 15px rgba(155, 126, 216, 0.35);
     }
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(155, 126, 216, 0.45);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(155, 126, 216, 0.45);
     }
-    .btn-secondary {
-      background: white;
+    .btn-primary:active {
+      transform: translateY(-1px);
+    }
+    .btn-dashed {
+      background: var(--color-yellow);
+      color: var(--color-white);
+      border: 3px dashed rgba(255, 255, 255, 0.7);
+      box-shadow: 0 4px 15px rgba(255, 200, 91, 0.35);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .btn-dashed:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 200, 91, 0.45);
+    }
+    .btn-outline {
+      background: var(--color-white);
       color: var(--color-purple-1);
-      border: 2px solid var(--color-purple-2);
-      box-shadow: var(--shadow-md);
+      border: 3px dashed var(--color-purple-2);
     }
-    .btn-secondary:hover {
+    .btn-outline:hover {
       background: var(--color-bg-panel);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
     .btn-pinterest {
       background: #E60023;
@@ -206,7 +299,7 @@
     }
     .btn-pinterest:hover {
       background: #c4001d;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
     .hero-buttons {
       display: flex;
@@ -215,76 +308,146 @@
       flex-wrap: wrap;
     }
 
-    /* ── SECTIONS ── */
+    /* ══════════════════════════════════════
+       SECTIONS
+    ══════════════════════════════════════ */
     .section {
-      max-width: 900px;
+      max-width: var(--container);
       margin: 0 auto;
-      padding: 60px 24px;
+      padding: 80px 24px;
+      position: relative;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
     }
     .section-title {
       font-family: 'Fredoka One', cursive;
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: var(--color-text-heading);
-      text-align: center;
-      margin-bottom: 12px;
-    }
-    .section-subtitle {
-      text-align: center;
-      color: var(--color-text-secondary);
-      margin-bottom: 40px;
-      font-size: 1.05rem;
+      margin-bottom: 8px;
+      position: relative;
+      display: inline-block;
     }
 
-    /* ── ABOUT ── */
-    .about {
+    /* ══════════════════════════════════════
+       HIGHLIGHT — Scroll-triggered underline
+       (estilo LittleDino con animación al scroll)
+    ══════════════════════════════════════ */
+    .highlight {
+      position: relative;
+      display: inline;
+      z-index: 1;
+    }
+    .highlight::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -4px;
+      height: 40%;
+      width: 0;
+      border-radius: 4px;
+      background: var(--color-pink-2);
+      z-index: -1;
+      transition: width 0s;
+    }
+    /* Colores rotativos por seccion */
+    .highlight--pink::before { background: var(--color-pink-2); }
+    .highlight--purple::before { background: var(--color-lavender); }
+    .highlight--yellow::before { background: var(--color-gold-soft); }
+    .highlight--mint::before { background: rgba(181, 234, 215, 0.7); }
+
+    /* Cuando es visible en viewport → animar el width */
+    .highlight.visible::before {
+      width: calc(100% + 8px);
+      transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .section-subtitle {
+      color: var(--color-text-secondary);
+      font-size: 1.1rem;
+      margin-top: 8px;
+    }
+
+    /* ══════════════════════════════════════
+       ABOUT — Dashed border cards
+    ══════════════════════════════════════ */
+    .about-bg {
       background: linear-gradient(180deg, var(--color-bg-main) 0%, var(--color-bg-panel) 100%);
+      position: relative;
     }
     .about-content {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
     }
     .about-card {
       background: white;
-      border-radius: 16px;
-      padding: 32px 24px;
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
       text-align: center;
-      box-shadow: var(--shadow-md);
-      transition: transform 0.25s ease;
+      transition: var(--transition);
+      position: relative;
     }
-    .about-card:hover { transform: translateY(-4px); }
-    .about-card .icon {
-      font-size: 2.5rem;
+    .about-card:nth-child(1) { border: 3px dashed var(--color-blue-soft); }
+    .about-card:nth-child(2) { border: 3px dashed var(--color-pink-1); }
+    .about-card:nth-child(3) { border: 3px dashed var(--color-yellow); }
+
+    .about-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    .about-card .card-icon {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 20px;
+      object-fit: contain;
+    }
+    .about-card .card-emoji {
+      font-size: 3rem;
       margin-bottom: 16px;
       display: block;
     }
     .about-card h3 {
       font-family: 'Fredoka One', cursive;
       color: var(--color-text-heading);
-      margin-bottom: 8px;
-      font-size: 1.15rem;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
     }
     .about-card p {
       color: var(--color-text-secondary);
       font-size: 0.95rem;
+      line-height: 1.7;
     }
 
-    /* ── PRODUCTS ── */
-    .products { background: var(--color-bg-main); }
+    /* ══════════════════════════════════════
+       PRODUCTS
+    ══════════════════════════════════════ */
+    .products-bg {
+      background: var(--color-bg-main);
+      position: relative;
+    }
+    .products-bg .decor-right {
+      position: absolute;
+      right: 0;
+      bottom: 10%;
+      width: 120px;
+      opacity: 0.12;
+      animation: floatSlow 9s ease-in-out infinite;
+    }
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
     }
     .product-card {
       background: white;
-      border-radius: 16px;
+      border-radius: var(--radius-lg);
       overflow: hidden;
       box-shadow: var(--shadow-md);
-      transition: all 0.25s ease;
+      transition: var(--transition);
     }
     .product-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-8px);
       box-shadow: var(--shadow-lg);
     }
     .product-image {
@@ -294,37 +457,158 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 4rem;
+      font-size: 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-image::after {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 3px dashed rgba(255,255,255,0.4);
+      border-radius: var(--radius-md);
+      pointer-events: none;
     }
     .product-info {
-      padding: 20px;
+      padding: 24px;
     }
     .product-info h3 {
       font-family: 'Fredoka One', cursive;
       color: var(--color-text-heading);
-      margin-bottom: 6px;
-      font-size: 1.1rem;
+      margin-bottom: 8px;
+      font-size: 1.15rem;
     }
     .product-info p {
       color: var(--color-text-secondary);
-      font-size: 0.9rem;
-      margin-bottom: 12px;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+      line-height: 1.6;
     }
     .product-price {
-      font-weight: 700;
+      display: inline-block;
+      font-weight: 900;
       color: var(--color-purple-1);
-      font-size: 1.15rem;
+      font-size: 1.2rem;
+      background: var(--color-bg-panel);
+      padding: 4px 14px;
+      border-radius: 12px;
     }
 
-    /* ── LINKS / SOCIAL ── */
-    .links {
-      background: linear-gradient(180deg, var(--color-bg-panel) 0%, var(--color-lavender) 100%);
+    /* ══════════════════════════════════════
+       BLOG — 2 Column Grid
+    ══════════════════════════════════════ */
+    .blog-bg {
+      background: linear-gradient(180deg, var(--color-bg-panel) 0%, var(--color-lavender) 50%, var(--color-bg-panel) 100%);
+      position: relative;
+    }
+    .blog-bg .decor-left {
+      position: absolute;
+      left: 0;
+      top: 15%;
+      width: 90px;
+      opacity: 0.12;
+      animation: floatSlow 7s ease-in-out 1s infinite;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .blog-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .blog-card-image {
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, var(--color-lavender) 0%, var(--color-pink-2) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .blog-card-category {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--color-yellow);
+      color: white;
+      font-weight: 900;
+      font-size: 0.75rem;
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 2px dashed rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .blog-card-body {
+      padding: 24px;
+    }
+    .blog-card-date {
+      color: var(--color-text-secondary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .blog-card-body h3 {
+      font-family: 'Fredoka One', cursive;
+      color: var(--color-text-heading);
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .blog-card-body p {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .blog-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--color-purple-1);
+      font-weight: 900;
+      font-size: 0.95rem;
+      border: 2px dashed var(--color-purple-2);
+      padding: 8px 20px;
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+    .blog-card-link:hover {
+      background: var(--color-bg-panel);
+      color: var(--color-text-heading);
+    }
+    .blog-more {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* ══════════════════════════════════════
+       LINKS / SOCIAL
+    ══════════════════════════════════════ */
+    .links-bg {
+      background: var(--color-bg-main);
     }
     .links-grid {
       display: flex;
       flex-direction: column;
       gap: 16px;
-      max-width: 500px;
+      max-width: 520px;
       margin: 0 auto;
     }
     .link-card {
@@ -332,209 +616,405 @@
       align-items: center;
       gap: 16px;
       background: white;
-      padding: 18px 24px;
-      border-radius: 16px;
+      padding: 20px 28px;
+      border-radius: var(--radius-lg);
       text-decoration: none;
       color: var(--color-text-body);
       font-weight: 700;
-      box-shadow: var(--shadow-md);
-      transition: all 0.25s ease;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
       font-size: 1.05rem;
+      border: 3px dashed transparent;
     }
+    .link-card:nth-child(1) { border-color: var(--color-yellow); }
+    .link-card:nth-child(2) { border-color: var(--color-pink-1); }
+    .link-card:nth-child(3) { border-color: var(--color-purple-2); }
+    .link-card:nth-child(4) { border-color: var(--color-mint); }
+
     .link-card:hover {
-      transform: translateY(-3px) scale(1.01);
+      transform: translateY(-4px) scale(1.01);
       box-shadow: var(--shadow-lg);
     }
-    .link-card .link-icon { font-size: 1.5rem; }
+    .link-card .link-icon { font-size: 1.6rem; }
     .link-card .link-arrow {
       margin-left: auto;
       color: var(--color-text-secondary);
       font-size: 1.2rem;
+      transition: var(--transition);
+    }
+    .link-card:hover .link-arrow {
+      transform: translateX(4px);
+      color: var(--color-purple-1);
     }
 
-    /* ── FOOTER ── */
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
     .footer {
-      background: linear-gradient(135deg, var(--color-purple-1) 0%, var(--color-purple-2) 50%, var(--color-pink-1) 100%);
-      color: rgba(255, 255, 255, 0.9);
+      background: var(--color-text-heading);
+      color: rgba(255, 255, 255, 0.85);
       text-align: center;
-      padding: 40px 24px;
+      padding: 50px 24px 30px;
+      position: relative;
+    }
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-purple-1), var(--color-pink-1), var(--color-yellow), var(--color-mint), var(--color-purple-1));
+    }
+    .footer-logo {
+      width: 60px;
+      margin: 0 auto 12px;
+      opacity: 0.9;
     }
     .footer .logo-footer {
       font-family: 'Fredoka One', cursive;
       font-size: 1.3rem;
       color: white;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
-    .footer p { font-size: 0.9rem; margin-bottom: 4px; }
+    .footer p {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+      opacity: 0.8;
+    }
     .footer-links {
-      margin-top: 16px;
+      margin-top: 20px;
       display: flex;
       gap: 24px;
       justify-content: center;
+      flex-wrap: wrap;
     }
     .footer-links a {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
       font-size: 0.9rem;
-      transition: color 0.2s;
+      font-weight: 600;
+      padding: 6px 16px;
+      border: 2px dashed rgba(255,255,255,0.2);
+      border-radius: 20px;
+      transition: var(--transition);
     }
-    .footer-links a:hover { color: white; }
+    .footer-links a:hover {
+      color: white;
+      border-color: rgba(255,255,255,0.5);
+    }
+    .footer-copyright {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
 
-    /* ── RESPONSIVE ── */
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .about-content,
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
     @media (max-width: 768px) {
       .hero h1 { font-size: 2rem; }
-      .hero .tagline { font-size: 1.1rem; }
-      .hero { padding: 60px 20px 40px; }
-      .section { padding: 40px 20px; }
-      .nav-links { gap: 16px; }
-      .nav-links a { font-size: 0.85rem; }
-      .logo { font-size: 1.15rem; }
-      .hero-buttons { flex-direction: column; align-items: center; }
+      .hero .tagline { font-size: 1rem; }
+      .hero-content-inner { padding: 30px 20px; }
+      .hero-text { max-width: 50%; }
+      .section { padding: 50px 20px; }
+      .section-title { font-size: 1.7rem; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 16px;
+        box-shadow: var(--shadow-md);
+        gap: 4px;
+      }
+      .menu-toggle { display: block; }
+      .about-content,
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-buttons { flex-direction: column; align-items: stretch; }
     }
     @media (max-width: 480px) {
-      .hero h1 { font-size: 1.6rem; }
-      .nav-links { display: none; }
-      .section-title { font-size: 1.5rem; }
+      .hero h1 { font-size: 1.5rem; }
+      .hero-text { max-width: 60%; }
+      .hero p.description { display: none; }
+      .btn { padding: 10px 20px; font-size: 0.9rem; }
+      .section-title { font-size: 1.4rem; }
+      .blog-grid { gap: 20px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- ═══════════ HEADER ═══════════ -->
   <header class="header">
     <div class="header-inner">
-      <a href="#" class="logo">&#10024; Tooth Fairy Magic Co.</a>
+      <a href="#" class="logo-link">
+        <img src="images/logo-header.png" alt="Tooth Fairy Magic Co." class="logo-header-img">
+      </a>
+      <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
       <nav>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#products">Products</a></li>
+          <li><a href="#blog">Blog</a></li>
           <li><a href="#links">Connect</a></li>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="privacy-policy.html">Privacy</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- ═══════════ HERO ═══════════ -->
   <section class="hero">
-    <div class="hero-sparkles">
-      <span class="sparkle">&#10024;</span>
-      <span class="sparkle">&#11088;</span>
-      <span class="sparkle">&#10024;</span>
-      <span class="sparkle">&#11088;</span>
-      <span class="sparkle">&#10024;</span>
-    </div>
-    <div class="hero-icon">&#129463;</div>
-    <h1>Tooth Fairy Magic Co.</h1>
-    <p class="tagline">Turning Tiny Teeth Into Big Memories</p>
-    <p class="description">
-      Adorable milestone t-shirts that celebrate your little one's biggest moments.
-      From first lost teeth to family matching sets &mdash; made with love in the USA.
-    </p>
-    <div class="hero-buttons">
-      <a href="https://www.etsy.com/shop/ToothFairyMagicCo" target="_blank" rel="noopener" class="btn btn-primary">
-        &#128722; Shop on Etsy
-      </a>
-      <a href="https://www.pinterest.com/toothfairymagic/" target="_blank" rel="noopener" class="btn btn-pinterest">
-        &#128204; Follow on Pinterest
-      </a>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="section about">
-    <h2 class="section-title">Why Families Love Us</h2>
-    <p class="section-subtitle">Every shirt tells a story worth remembering</p>
-    <div class="about-content">
-      <div class="about-card">
-        <span class="icon">&#127752;</span>
-        <h3>Magical Designs</h3>
-        <p>Original characters and whimsical art that kids absolutely love to wear.</p>
-      </div>
-      <div class="about-card">
-        <span class="icon">&#128090;</span>
-        <h3>Premium Quality</h3>
-        <p>100% soft cotton Bella Canvas tees &mdash; gentle on sensitive skin.</p>
-      </div>
-      <div class="about-card">
-        <span class="icon">&#128149;</span>
-        <h3>Family Matching</h3>
-        <p>Baby + Mom + Dad sets for the ultimate milestone photo moment.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCTS -->
-  <section id="products" class="section products">
-    <h2 class="section-title">Our Collections</h2>
-    <p class="section-subtitle">Celebrate every tiny tooth milestone</p>
-    <div class="product-grid">
-      <div class="product-card">
-        <div class="product-image">&#128118;</div>
-        <div class="product-info">
-          <h3>Baby Solo Tees</h3>
-          <p>Adorable milestone shirts for your little one's big tooth fairy moment.</p>
-          <span class="product-price">From $22.99</span>
+    <img src="images/hero-banner.png" alt="Tooth Fairy Magic Co. Banner" class="hero-banner-img">
+    <div class="hero-content">
+      <div class="hero-content-inner">
+      <div class="hero-text">
+        <h1>Tooth Fairy <span class="highlight highlight--pink">Magic</span> Co.</h1>
+        <p class="tagline">Turning Tiny Teeth Into Big Memories</p>
+        <p class="description">
+          Adorable milestone t-shirts that celebrate your little one's biggest moments.
+          From first lost teeth to family matching sets &mdash; made with love in the USA.
+        </p>
+        <div class="hero-buttons">
+          <a href="https://www.etsy.com/shop/ToothFairyMagicCo" target="_blank" rel="noopener" class="btn btn-primary">
+            &#128722; Shop on Etsy
+          </a>
+          <a href="https://www.pinterest.com/toothfairymagic/" target="_blank" rel="noopener" class="btn btn-dashed">
+            &#128204; Follow on Pinterest
+          </a>
         </div>
       </div>
-      <div class="product-card">
-        <div class="product-image">&#128106;</div>
-        <div class="product-info">
-          <h3>Family Matching Sets</h3>
-          <p>Mom, Dad & Baby coordinated sets &mdash; perfect for milestone photos.</p>
-          <span class="product-price">From $42.99</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-image">&#127873;</div>
-        <div class="product-info">
-          <h3>Gift Bundles</h3>
-          <p>The perfect gift for tooth fairy night &mdash; shirts the whole family will treasure.</p>
-          <span class="product-price">From $64.99</span>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- LINKS -->
-  <section id="links" class="section links">
-    <h2 class="section-title">Connect With Us</h2>
-    <p class="section-subtitle">Follow our journey &amp; find inspiration</p>
-    <div class="links-grid">
-      <a href="https://www.etsy.com/shop/ToothFairyMagicCo" target="_blank" rel="noopener" class="link-card">
-        <span class="link-icon">&#128722;</span>
-        Shop on Etsy
-        <span class="link-arrow">&rarr;</span>
-      </a>
-      <a href="https://www.pinterest.com/toothfairymagic/" target="_blank" rel="noopener" class="link-card">
-        <span class="link-icon">&#128204;</span>
-        Pinterest
-        <span class="link-arrow">&rarr;</span>
-      </a>
-      <a href="https://www.instagram.com/toothfairymagicco/" target="_blank" rel="noopener" class="link-card">
-        <span class="link-icon">&#128247;</span>
-        Instagram
-        <span class="link-arrow">&rarr;</span>
-      </a>
-      <a href="https://www.tiktok.com/@toothfairymagicco" target="_blank" rel="noopener" class="link-card">
-        <span class="link-icon">&#127916;</span>
-        TikTok
-        <span class="link-arrow">&rarr;</span>
-      </a>
-    </div>
-  </section>
+  <!-- ═══════════ ABOUT ═══════════ -->
+  <div class="about-bg">
+    <section id="about" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Why Families <span class="highlight highlight--pink">Love</span> Us</h2>
+        <p class="section-subtitle">Every shirt tells a story worth remembering</p>
+      </div>
+      <div class="about-content">
+        <div class="about-card">
+          <img src="images/star-kawaii.png" alt="Magical Designs" class="card-icon">
+          <h3>Magical Designs</h3>
+          <p>Original characters and whimsical art that kids absolutely love to wear.</p>
+        </div>
+        <div class="about-card">
+          <img src="images/heart-kawaii.png" alt="Premium Quality" class="card-icon">
+          <h3>Premium Quality</h3>
+          <p>100% soft cotton Bella Canvas tees &mdash; gentle on sensitive skin.</p>
+        </div>
+        <div class="about-card">
+          <img src="images/tooth-kawaii.png" alt="Family Matching" class="card-icon">
+          <h3>Family Matching</h3>
+          <p>Baby + Mom + Dad sets for the ultimate milestone photo moment.</p>
+        </div>
+      </div>
+    </section>
+  </div>
 
-  <!-- FOOTER -->
+  <!-- ═══════════ PRODUCTS ═══════════ -->
+  <div class="products-bg">
+    <img src="images/fairy-wand.png" alt="" class="decor-right" aria-hidden="true">
+    <section id="products" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Our <span class="highlight highlight--purple">Collections</span></h2>
+        <p class="section-subtitle">Celebrate every tiny tooth milestone</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-image">&#128118;</div>
+          <div class="product-info">
+            <h3>Baby Solo Tees</h3>
+            <p>Adorable milestone shirts for your little one's big tooth fairy moment.</p>
+            <span class="product-price">From $22.99</span>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">&#128106;</div>
+          <div class="product-info">
+            <h3>Family Matching Sets</h3>
+            <p>Mom, Dad &amp; Baby coordinated sets &mdash; perfect for milestone photos.</p>
+            <span class="product-price">From $42.99</span>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">&#127873;</div>
+          <div class="product-info">
+            <h3>Gift Bundles</h3>
+            <p>The perfect gift for tooth fairy night &mdash; shirts the whole family will treasure.</p>
+            <span class="product-price">From $64.99</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════ BLOG ═══════════ -->
+  <div class="blog-bg">
+    <img src="images/heart-kawaii.png" alt="" class="decor-left" aria-hidden="true">
+    <section id="blog" class="section">
+      <div class="section-header">
+        <h2 class="section-title">From Our <span class="highlight highlight--yellow">Blog</span></h2>
+        <p class="section-subtitle">Tips, ideas &amp; magical moments for tooth fairy families</p>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <span class="blog-card-category">Milestone Tips</span>
+            &#129463;
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">March 28, 2026</p>
+            <h3>5 Creative Ways to Celebrate Your Baby's First Lost Tooth</h3>
+            <p>Make the tooth fairy's visit extra special with these fun, memorable ideas that your family will cherish forever.</p>
+            <a href="#" class="blog-card-link">Read More &#8594;</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <span class="blog-card-category">Family Style</span>
+            &#128106;
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">March 25, 2026</p>
+            <h3>How to Plan the Perfect Matching Family Photo Shoot</h3>
+            <p>From coordinating colors to choosing the right location &mdash; your complete guide to milestone family portraits.</p>
+            <a href="#" class="blog-card-link">Read More &#8594;</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <span class="blog-card-category">Tooth Fairy Magic</span>
+            &#11088;
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">March 20, 2026</p>
+            <h3>The Ultimate Tooth Fairy Letter Template (Free Printable!)</h3>
+            <p>Download our magical tooth fairy letter and make your child's experience truly unforgettable.</p>
+            <a href="#" class="blog-card-link">Read More &#8594;</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <span class="blog-card-category">Gift Guide</span>
+            &#127873;
+          </div>
+          <div class="blog-card-body">
+            <p class="blog-card-date">March 15, 2026</p>
+            <h3>Top 10 Tooth Fairy Gift Ideas for Every Budget</h3>
+            <p>From tiny treasures to matching family sets &mdash; find the perfect way to celebrate each lost tooth.</p>
+            <a href="#" class="blog-card-link">Read More &#8594;</a>
+          </div>
+        </article>
+      </div>
+      <div class="blog-more">
+        <a href="#" class="btn btn-dashed">Load More &#8595;</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════ CONNECT ═══════════ -->
+  <div class="links-bg">
+    <section id="links" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Connect <span class="highlight highlight--mint">With Us</span></h2>
+        <p class="section-subtitle">Follow our journey &amp; find inspiration</p>
+      </div>
+      <div class="links-grid">
+        <a href="https://www.etsy.com/shop/ToothFairyMagicCo" target="_blank" rel="noopener" class="link-card">
+          <span class="link-icon">&#128722;</span>
+          Shop on Etsy
+          <span class="link-arrow">&#8594;</span>
+        </a>
+        <a href="https://www.pinterest.com/toothfairymagic/" target="_blank" rel="noopener" class="link-card">
+          <span class="link-icon">&#128204;</span>
+          Pinterest
+          <span class="link-arrow">&#8594;</span>
+        </a>
+        <a href="https://www.instagram.com/toothfairymagicco/" target="_blank" rel="noopener" class="link-card">
+          <span class="link-icon">&#128247;</span>
+          Instagram
+          <span class="link-arrow">&#8594;</span>
+        </a>
+        <a href="https://www.tiktok.com/@toothfairymagicco" target="_blank" rel="noopener" class="link-card">
+          <span class="link-icon">&#127916;</span>
+          TikTok
+          <span class="link-arrow">&#8594;</span>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
   <footer class="footer">
-    <div class="logo-footer">&#10024; Tooth Fairy Magic Co.</div>
+    <img src="images/fairy-tooth.png" alt="Tooth Fairy Magic Co." class="footer-logo">
+    <div class="logo-footer">Tooth Fairy Magic Co.</div>
     <p>Turning Tiny Teeth Into Big Memories</p>
-    <p>&copy; 2026 Tooth Fairy Magic Co. All rights reserved.</p>
     <div class="footer-links">
       <a href="https://www.etsy.com/shop/ToothFairyMagicCo" target="_blank" rel="noopener">Etsy Shop</a>
+      <a href="#blog">Blog</a>
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="mailto:toothfairymagicco@gmail.com">Contact</a>
     </div>
+    <p class="footer-copyright">&copy; 2026 Tooth Fairy Magic Co. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+
+    // Scroll-triggered highlight underline animation
+    function initHighlights() {
+      var highlights = document.querySelectorAll('.highlight');
+      if (!highlights.length) return;
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            // Small delay for visual effect
+            setTimeout(function() {
+              entry.target.classList.add('visible');
+            }, 200);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
+
+      highlights.forEach(function(el) { observer.observe(el); });
+    }
+
+    // Run on load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHighlights);
+    } else {
+      initHighlights();
+    }
+  </script>
 
 </body>
 </html>
