@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooth Fairy Magic Co. | Turning Tiny Teeth Into Big Memories</title>
+  <meta name="description" content="Adorable baby milestone t-shirts for first lost tooth moments. Matching family sets available. Shop on Etsy!">
+  <meta name="keywords" content="tooth fairy shirt, baby milestone, first lost tooth, kids t-shirt, matching family shirts">
+
+  <!-- Open Graph for Pinterest & Social -->
+  <meta property="og:title" content="Tooth Fairy Magic Co.">
+  <meta property="og:description" content="Turning Tiny Teeth Into Big Memories. Adorable milestone t-shirts for babies & families.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://victorialozano0.github.io/tooth_fairy_magic_co-app/">
+
+  <!-- Pinterest verification (add your meta tag here when ready) -->
+  <!-- <meta name="p:domain_verify" content="YOUR_PINTEREST_CODE"/> -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── VARIABLES ── */
+    :root {
+      --color-purple-1: #9B7ED8;
+      --color-purple-2: #C4A6E8;
+      --color-pink-1: #F5A3C7;
+      --color-pink-2: #FFD1DC;
+      --color-lavender: #E6D5F5;
+      --color-mint: #B5EAD7;
+      --color-gold: rgba(255, 215, 0, 0.6);
+      --color-bg-main: #FDFBFF;
+      --color-bg-panel: #F8F4FF;
+      --color-text-heading: #2D1B4E;
+      --color-text-body: #4A3660;
+      --color-text-secondary: #7B6899;
+      --shadow-md: 0 4px 12px rgba(155, 126, 216, 0.12);
+      --shadow-lg: 0 8px 24px rgba(155, 126, 216, 0.15);
+    }
+
+    /* ── RESET & BASE ── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--color-text-body);
+      background-color: var(--color-bg-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── SPARKLE ANIMATION ── */
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: linear-gradient(135deg, var(--color-purple-1) 0%, var(--color-purple-2) 50%, var(--color-pink-1) 100%);
+      padding: 16px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(155, 126, 216, 0.3);
+    }
+    .header-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.4rem;
+      color: white;
+      text-decoration: none;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: white; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, var(--color-bg-panel) 0%, var(--color-lavender) 40%, var(--color-pink-2) 100%);
+      text-align: center;
+      padding: 80px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at 30% 50%, rgba(155, 126, 216, 0.08) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 50%, rgba(245, 163, 199, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-sparkles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .sparkle {
+      position: absolute;
+      font-size: 1.2rem;
+      animation: sparkle 2s ease-in-out infinite;
+    }
+    .sparkle:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+    .sparkle:nth-child(2) { top: 25%; right: 15%; animation-delay: 0.5s; }
+    .sparkle:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 1s; }
+    .sparkle:nth-child(4) { top: 40%; right: 8%; animation-delay: 1.5s; }
+    .sparkle:nth-child(5) { bottom: 30%; right: 25%; animation-delay: 0.3s; }
+
+    .hero-icon {
+      font-size: 4rem;
+      animation: float 3s ease-in-out infinite;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.8rem;
+      color: var(--color-text-heading);
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .hero .tagline {
+      font-size: 1.3rem;
+      color: var(--color-text-secondary);
+      font-weight: 600;
+      font-style: italic;
+      margin-bottom: 32px;
+    }
+    .hero p.description {
+      font-size: 1.1rem;
+      color: var(--color-text-body);
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 24px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-purple-1) 0%, var(--color-purple-2) 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(155, 126, 216, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(155, 126, 216, 0.45);
+    }
+    .btn-secondary {
+      background: white;
+      color: var(--color-purple-1);
+      border: 2px solid var(--color-purple-2);
+      box-shadow: var(--shadow-md);
+    }
+    .btn-secondary:hover {
+      background: var(--color-bg-panel);
+      transform: translateY(-2px);
+    }
+    .btn-pinterest {
+      background: #E60023;
+      color: white;
+      box-shadow: 0 4px 15px rgba(230, 0, 35, 0.3);
+    }
+    .btn-pinterest:hover {
+      background: #c4001d;
+      transform: translateY(-2px);
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .section-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.8rem;
+      color: var(--color-text-heading);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: var(--color-text-secondary);
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      background: linear-gradient(180deg, var(--color-bg-main) 0%, var(--color-bg-panel) 100%);
+    }
+    .about-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+    .about-card {
+      background: white;
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.25s ease;
+    }
+    .about-card:hover { transform: translateY(-4px); }
+    .about-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .about-card h3 {
+      font-family: 'Fredoka One', cursive;
+      color: var(--color-text-heading);
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+    }
+    .about-card p {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* ── PRODUCTS ── */
+    .products { background: var(--color-bg-main); }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all 0.25s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .product-image {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--color-lavender) 0%, var(--color-pink-2) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+    .product-info {
+      padding: 20px;
+    }
+    .product-info h3 {
+      font-family: 'Fredoka One', cursive;
+      color: var(--color-text-heading);
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+    }
+    .product-info p {
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+    .product-price {
+      font-weight: 700;
+      color: var(--color-purple-1);
+      font-size: 1.15rem;
+    }
+
+    /* ── LINKS / SOCIAL ── */
+    .links {
+      background: linear-gradient(180deg, var(--color-bg-panel) 0%, var(--color-lavender) 100%);
+    }
+    .links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: white;
+      padding: 18px 24px;
+      border-radius: 16px;
+      text-decoration: none;
+      color: var(--color-text-body);
+      font-weight: 700;
+      box-shadow: var(--shadow-md);
+      transition: all 0.25s ease;
+      font-size: 1.05rem;
+    }
+    .link-card:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: var(--shadow-lg);
+    }
+    .link-card .link-icon { font-size: 1.5rem; }
+    .link-card .link-arrow {
+      margin-left: auto;
+      color: var(--color-text-secondary);
+      font-size: 1.2rem;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: linear-gradient(135deg, var(--color-purple-1) 0%, var(--color-purple-2) 50%, var(--color-pink-1) 100%);
+      color: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      padding: 40px 24px;
+    }
+    .footer .logo-footer {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.3rem;
+      color: white;
+      margin-bottom: 8px;
+    }
+    .footer p { font-size: 0.9rem; margin-bottom: 4px; }
+    .footer-links {
+      margin-top: 16px;
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+    }
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: white; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero .tagline { font-size: 1.1rem; }
+      .hero { padding: 60px 20px 40px; }
+      .section { padding: 40px 20px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 0.85rem; }
+      .logo { font-size: 1.15rem; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.6rem; }
+      .nav-links { display: none; }
+      .section-title { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">&#10024; Tooth Fairy Magic Co.</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#links">Connect</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-sparkles">
+      <span class="sparkle">&#10024;</span>
+      <span class="sparkle">&#11088;</span>
+      <span class="sparkle">&#10024;</span>
+      <span class="sparkle">&#11088;</span>
+      <span class="sparkle">&#10024;</span>
+    </div>
+    <div class="hero-icon">&#129463;</div>
+    <h1>Tooth Fairy Magic Co.</h1>
+    <p class="tagline">Turning Tiny Teeth Into Big Memories</p>
+    <p class="description">
+      Adorable milestone t-shirts that celebrate your little one's biggest moments.
+      From first lost teeth to family matching sets &mdash; made with love in the USA.
+    </p>
+    <div class="hero-buttons">
+      <a href="https://www.etsy.com/shop/ToothFairyMagicCo" target="_blank" rel="noopener" class="btn btn-primary">
+        &#128722; Shop on Etsy
+      </a>
+      <a href="https://www.pinterest.com/toothfairymagic/" target="_blank" rel="noopener" class="btn btn-pinterest">
+        &#128204; Follow on Pinterest
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section about">
+    <h2 class="section-title">Why Families Love Us</h2>
+    <p class="section-subtitle">Every shirt tells a story worth remembering</p>
+    <div class="about-content">
+      <div class="about-card">
+        <span class="icon">&#127752;</span>
+        <h3>Magical Designs</h3>
+        <p>Original characters and whimsical art that kids absolutely love to wear.</p>
+      </div>
+      <div class="about-card">
+        <span class="icon">&#128090;</span>
+        <h3>Premium Quality</h3>
+        <p>100% soft cotton Bella Canvas tees &mdash; gentle on sensitive skin.</p>
+      </div>
+      <div class="about-card">
+        <span class="icon">&#128149;</span>
+        <h3>Family Matching</h3>
+        <p>Baby + Mom + Dad sets for the ultimate milestone photo moment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="section products">
+    <h2 class="section-title">Our Collections</h2>
+    <p class="section-subtitle">Celebrate every tiny tooth milestone</p>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-image">&#128118;</div>
+        <div class="product-info">
+          <h3>Baby Solo Tees</h3>
+          <p>Adorable milestone shirts for your little one's big tooth fairy moment.</p>
+          <span class="product-price">From $22.99</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image">&#128106;</div>
+        <div class="product-info">
+          <h3>Family Matching Sets</h3>
+          <p>Mom, Dad & Baby coordinated sets &mdash; perfect for milestone photos.</p>
+          <span class="product-price">From $42.99</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image">&#127873;</div>
+        <div class="product-info">
+          <h3>Gift Bundles</h3>
+          <p>The perfect gift for tooth fairy night &mdash; shirts the whole family will treasure.</p>
+          <span class="product-price">From $64.99</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section id="links" class="section links">
+    <h2 class="section-title">Connect With Us</h2>
+    <p class="section-subtitle">Follow our journey &amp; find inspiration</p>
+    <div class="links-grid">
+      <a href="https://www.etsy.com/shop/ToothFairyMagicCo" target="_blank" rel="noopener" class="link-card">
+        <span class="link-icon">&#128722;</span>
+        Shop on Etsy
+        <span class="link-arrow">&rarr;</span>
+      </a>
+      <a href="https://www.pinterest.com/toothfairymagic/" target="_blank" rel="noopener" class="link-card">
+        <span class="link-icon">&#128204;</span>
+        Pinterest
+        <span class="link-arrow">&rarr;</span>
+      </a>
+      <a href="https://www.instagram.com/toothfairymagicco/" target="_blank" rel="noopener" class="link-card">
+        <span class="link-icon">&#128247;</span>
+        Instagram
+        <span class="link-arrow">&rarr;</span>
+      </a>
+      <a href="https://www.tiktok.com/@toothfairymagicco" target="_blank" rel="noopener" class="link-card">
+        <span class="link-icon">&#127916;</span>
+        TikTok
+        <span class="link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="logo-footer">&#10024; Tooth Fairy Magic Co.</div>
+    <p>Turning Tiny Teeth Into Big Memories</p>
+    <p>&copy; 2026 Tooth Fairy Magic Co. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="https://www.etsy.com/shop/ToothFairyMagicCo" target="_blank" rel="noopener">Etsy Shop</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="mailto:toothfairymagicco@gmail.com">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
