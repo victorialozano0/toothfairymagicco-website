@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You for Your Order! | Tooth Fairy Magic Co.</title>
+  <meta name="description" content="Thank you for being part of the Tooth Fairy Magic family! Get 10% off your next order and join our community.">
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ══════════════════════════════════════
+       VARIABLES
+    ══════════════════════════════════════ */
+    :root {
+      --color-purple-1: #9B7ED8;
+      --color-purple-2: #C4A6E8;
+      --color-purple-light: #E6D5F5;
+      --color-pink-1: #F5A3C7;
+      --color-pink-2: #FFD1DC;
+      --color-pink-soft: #FFF0F5;
+      --color-lavender: #E6D5F5;
+      --color-mint: #B5EAD7;
+      --color-gold: #FFD700;
+      --color-gold-soft: #FFF3C4;
+      --color-yellow: #FFC85B;
+      --color-blue-soft: #45B3DF;
+      --color-bg-main: #FDFBFF;
+      --color-bg-panel: #F8F4FF;
+      --color-text-heading: #2D1B4E;
+      --color-text-body: #4A3660;
+      --color-text-secondary: #7B6899;
+      --color-white: #ffffff;
+      --shadow-sm: 0 2px 8px rgba(155, 126, 216, 0.08);
+      --shadow-md: 0 4px 16px rgba(155, 126, 216, 0.12);
+      --shadow-lg: 0 8px 32px rgba(155, 126, 216, 0.18);
+      --radius-sm: 16px;
+      --radius-md: 24px;
+      --radius-lg: 30px;
+      --container: 1100px;
+      --transition: all 0.35s ease;
+    }
+
+    /* ══════════════════════════════════════
+       RESET & BASE
+    ══════════════════════════════════════ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--color-text-body);
+      background-color: var(--color-bg-main);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; }
+
+    /* ══════════════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════════════ */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.4) rotate(15deg); }
+    }
+
+    /* ══════════════════════════════════════
+       HEADER & NAV
+    ══════════════════════════════════════ */
+    .header {
+      background: var(--color-white);
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .header-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+    }
+    .logo-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .logo-header-img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--color-text-body);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: 2px dashed transparent;
+      transition: var(--transition);
+    }
+    .nav-links a:hover {
+      color: var(--color-purple-1);
+      border-color: var(--color-purple-2);
+      background: var(--color-bg-panel);
+    }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: var(--color-text-heading);
+      padding: 8px;
+    }
+
+    /* ══════════════════════════════════════
+       BUTTONS
+    ══════════════════════════════════════ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: var(--radius-lg);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-purple-1) 0%, var(--color-purple-2) 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(155, 126, 216, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(155, 126, 216, 0.45);
+    }
+    .btn-dashed {
+      background: var(--color-yellow);
+      color: var(--color-white);
+      border: 3px dashed rgba(255, 255, 255, 0.7);
+      box-shadow: 0 4px 15px rgba(255, 200, 91, 0.35);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .btn-dashed:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 200, 91, 0.45);
+    }
+    .btn-outline {
+      background: var(--color-white);
+      color: var(--color-purple-1);
+      border: 3px dashed var(--color-purple-2);
+    }
+    .btn-outline:hover {
+      background: var(--color-bg-panel);
+      transform: translateY(-3px);
+    }
+    .btn-pink {
+      background: linear-gradient(135deg, var(--color-pink-1) 0%, var(--color-pink-2) 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(245, 163, 199, 0.35);
+    }
+    .btn-pink:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(245, 163, 199, 0.45);
+    }
+
+    /* ══════════════════════════════════════
+       THANK YOU PAGE — HERO
+    ══════════════════════════════════════ */
+    .ty-hero {
+      text-align: center;
+      padding: 60px 24px 40px;
+      background: linear-gradient(180deg, var(--color-bg-panel) 0%, var(--color-bg-main) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .ty-hero-img {
+      width: 280px;
+      margin: 0 auto 28px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      animation: fadeInUp 0.6s ease-out;
+    }
+    .ty-hero h1 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.4rem;
+      color: var(--color-text-heading);
+      line-height: 1.3;
+      margin-bottom: 12px;
+      animation: fadeInUp 0.6s ease-out 0.1s both;
+    }
+    .ty-hero .tagline {
+      font-size: 1.15rem;
+      color: var(--color-text-secondary);
+      font-weight: 600;
+      font-style: italic;
+      max-width: 520px;
+      margin: 0 auto;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
+    .ty-floating {
+      position: absolute;
+      animation: floatSlow 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .ty-floating--1 { top: 30px; left: 4%; width: 180px; opacity: 0.9; animation-delay: 0s; }
+    .ty-floating--2 { top: 50px; right: 8%; width: 50px; opacity: 0.2; animation-delay: 2s; }
+    .ty-floating--3 { bottom: 20px; left: 12%; width: 45px; opacity: 0.2; animation-delay: 4s; }
+
+    /* ══════════════════════════════════════
+       SECTIONS
+    ══════════════════════════════════════ */
+    .ty-section {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ══════════════════════════════════════
+       EMAIL SIGNUP BOX
+    ══════════════════════════════════════ */
+    .ty-signup {
+      border: 3px dashed var(--color-pink-1);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      text-align: center;
+      background: var(--color-pink-soft);
+      margin: 40px auto;
+      max-width: 600px;
+      animation: fadeInUp 0.6s ease-out 0.3s both;
+    }
+    .ty-signup h2 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.5rem;
+      color: var(--color-text-heading);
+      margin-bottom: 10px;
+    }
+    .ty-signup p {
+      color: var(--color-text-secondary);
+      font-size: 1rem;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+    .ty-signup-form {
+      display: flex;
+      gap: 12px;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .ty-signup-form input[type="email"] {
+      flex: 1;
+      padding: 14px 20px;
+      border: 3px dashed var(--color-purple-2);
+      border-radius: var(--radius-lg);
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text-body);
+      background: var(--color-white);
+      outline: none;
+      transition: var(--transition);
+    }
+    .ty-signup-form input[type="email"]::placeholder {
+      color: var(--color-text-secondary);
+      font-weight: 400;
+    }
+    .ty-signup-form input[type="email"]:focus {
+      border-color: var(--color-purple-1);
+      box-shadow: 0 0 0 4px rgba(155, 126, 216, 0.15);
+    }
+    .ty-signup-form button {
+      padding: 14px 28px;
+      white-space: nowrap;
+    }
+    .ty-signup-note {
+      font-size: 0.8rem;
+      color: var(--color-text-secondary);
+      margin-top: 14px;
+      opacity: 0.8;
+    }
+    .ty-signup-success {
+      display: none;
+      padding: 20px;
+      background: var(--color-mint);
+      border: 3px dashed rgba(255,255,255,0.5);
+      border-radius: var(--radius-md);
+      color: var(--color-text-heading);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    /* ══════════════════════════════════════
+       SOCIAL & SHOP LINKS
+    ══════════════════════════════════════ */
+    .ty-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 600px;
+      margin: 32px auto;
+      padding: 0 24px;
+      animation: fadeInUp 0.6s ease-out 0.4s both;
+    }
+    .ty-link-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 28px 20px;
+      border-radius: var(--radius-md);
+      border: 3px dashed transparent;
+      text-decoration: none;
+      transition: var(--transition);
+      text-align: center;
+    }
+    .ty-link-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .ty-link-card--shop {
+      background: var(--color-bg-panel);
+      border-color: var(--color-purple-2);
+    }
+    .ty-link-card--shop:hover { background: var(--color-purple-light); }
+    .ty-link-card--pinterest {
+      background: #FFF0F0;
+      border-color: #FFB3B3;
+    }
+    .ty-link-card--pinterest:hover { background: #FFE0E0; }
+    .ty-link-card--instagram {
+      background: var(--color-gold-soft);
+      border-color: var(--color-yellow);
+    }
+    .ty-link-card--instagram:hover { background: #FFE9A0; }
+    .ty-link-card--blog {
+      background: #E8FFF3;
+      border-color: var(--color-mint);
+    }
+    .ty-link-card--blog:hover { background: #D0F5E0; }
+    .ty-link-icon {
+      font-size: 2rem;
+    }
+    .ty-link-icon-img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+    .ty-link-card h3 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1rem;
+      color: var(--color-text-heading);
+    }
+    .ty-link-card p {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ══════════════════════════════════════
+       REVIEW SECTION
+    ══════════════════════════════════════ */
+    .ty-review {
+      border: 3px dashed var(--color-yellow);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      text-align: center;
+      background: var(--color-gold-soft);
+      max-width: 600px;
+      margin: 40px auto;
+      animation: fadeInUp 0.6s ease-out 0.5s both;
+    }
+    .ty-review h2 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.4rem;
+      color: var(--color-text-heading);
+      margin-bottom: 10px;
+    }
+    .ty-review p {
+      color: var(--color-text-body);
+      font-size: 1rem;
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+    .ty-review-steps {
+      text-align: left;
+      max-width: 380px;
+      margin: 20px auto 0;
+      font-size: 0.95rem;
+      line-height: 2;
+    }
+    .ty-review-steps li {
+      list-style: none;
+      padding-left: 28px;
+      position: relative;
+    }
+    .ty-review-steps li::before {
+      content: attr(data-step);
+      position: absolute;
+      left: 0;
+      font-weight: 900;
+      color: var(--color-yellow);
+    }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    .footer {
+      background: var(--color-text-heading);
+      color: rgba(255, 255, 255, 0.85);
+      text-align: center;
+      padding: 50px 24px 30px;
+      position: relative;
+      margin-top: 60px;
+    }
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-purple-1), var(--color-pink-1), var(--color-yellow), var(--color-mint), var(--color-purple-1));
+    }
+    .footer-logo {
+      width: 60px;
+      margin: 0 auto 12px;
+      opacity: 0.9;
+    }
+    .footer .logo-footer {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.3rem;
+      color: white;
+      margin-bottom: 6px;
+    }
+    .footer p {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+      opacity: 0.8;
+    }
+    .footer-links {
+      margin-top: 20px;
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border: 2px dashed rgba(255,255,255,0.2);
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+    .footer-links a:hover {
+      color: white;
+      border-color: rgba(255,255,255,0.5);
+    }
+    .footer-copyright {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .ty-hero h1 { font-size: 1.8rem; }
+      .ty-hero-img { width: 220px; }
+      .ty-signup { padding: 32px 24px; }
+      .ty-signup-form { flex-direction: column; }
+      .ty-links { grid-template-columns: 1fr; padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 16px;
+        box-shadow: var(--shadow-md);
+        gap: 4px;
+      }
+      .menu-toggle { display: block; }
+    }
+    @media (max-width: 480px) {
+      .ty-hero h1 { font-size: 1.5rem; }
+      .ty-hero .tagline { font-size: 1rem; }
+      .ty-signup h2 { font-size: 1.3rem; }
+      .ty-review { padding: 28px 20px; }
+      .btn { padding: 10px 20px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ HEADER ═══════════ -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo-link">
+        <img src="images/logo-header.png" alt="Tooth Fairy Magic Co." class="logo-header-img">
+      </a>
+      <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#products">Products</a></li>
+          <li><a href="index.html#blog">Blog</a></li>
+          <li><a href="index.html#links">Connect</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="ty-hero">
+    <img src="images/ty-fairy.png" alt="Thank you from the Tooth Fairy" class="ty-floating ty-floating--1">
+    <img src="images/star-kawaii.png" alt="" class="ty-floating ty-floating--2">
+    <img src="images/heart-kawaii.png" alt="" class="ty-floating ty-floating--3">
+
+    <img src="images/ty-hero.png" alt="Thank you for your order" class="ty-hero-img">
+    <h1>Thank You for Being Part<br>of the Magic!</h1>
+    <p class="tagline">Your order is on its way to make a tiny tooth moment unforgettable.</p>
+  </section>
+
+  <!-- ═══════════ EMAIL SIGNUP ═══════════ -->
+  <div class="ty-section">
+    <div class="ty-signup" id="signup-box">
+      <h2>Get 10% Off Your Next Order</h2>
+      <p>Join our fairy family and be the first to see new designs, exclusive deals, and milestone celebration ideas.</p>
+      <form class="ty-signup-form" id="signup-form">
+        <input type="email" id="signup-email" placeholder="your@email.com" required>
+        <button type="submit" class="btn btn-pink">Join</button>
+      </form>
+      <p class="ty-signup-note">No spam, just magic. Unsubscribe anytime.</p>
+      <div class="ty-signup-success" id="signup-success">
+        You're in! Check your email for your 10% off code.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ SOCIAL & SHOP LINKS ═══════════ -->
+  <div class="ty-links">
+    <a href="https://www.etsy.com/shop/ToothFairyMagicCo" target="_blank" rel="noopener" class="ty-link-card ty-link-card--shop">
+      <img src="images/icon-shop.png" alt="Shop" class="ty-link-icon-img">
+      <h3>Browse More Outfits</h3>
+      <p>Matching family sets, bundles &amp; new designs</p>
+    </a>
+    <a href="https://www.pinterest.com/toothfairymagic/" target="_blank" rel="noopener" class="ty-link-card ty-link-card--pinterest">
+      <img src="images/icon-pinterest.png" alt="Pinterest" class="ty-link-icon-img">
+      <h3>Follow on Pinterest</h3>
+      <p>Milestone ideas, gift guides &amp; inspiration</p>
+    </a>
+    <a href="#" class="ty-link-card ty-link-card--instagram">
+      <img src="images/icon-camera.png" alt="Share Photos" class="ty-link-icon-img">
+      <h3>Share Your Photos</h3>
+      <p>Tag @toothfairymagicco &mdash; we love to see!</p>
+    </a>
+    <a href="index.html#blog" class="ty-link-card ty-link-card--blog">
+      <img src="images/icon-blog.png" alt="Blog" class="ty-link-icon-img">
+      <h3>Read Our Blog</h3>
+      <p>Tooth fairy letters, celebration tips &amp; more</p>
+    </a>
+  </div>
+
+  <!-- ═══════════ REVIEW REQUEST ═══════════ -->
+  <div class="ty-section">
+    <div class="ty-review">
+      <h2>Love Your Order?</h2>
+      <p>A review helps other families find us and makes our day! It only takes a moment:</p>
+      <ol class="ty-review-steps">
+        <li data-step="1. ">Open Etsy and go to <strong>Your Account</strong></li>
+        <li data-step="2. ">Tap <strong>Purchases &amp; Reviews</strong></li>
+        <li data-step="3. ">Find your order and tap <strong>Leave a Review</strong></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <img src="images/fairy-tooth.png" alt="Tooth Fairy Magic Co." class="footer-logo">
+    <div class="logo-footer">Tooth Fairy Magic Co.</div>
+    <p>Turning Tiny Teeth Into Big Memories</p>
+    <div class="footer-links">
+      <a href="https://www.etsy.com/shop/ToothFairyMagicCo" target="_blank" rel="noopener">Etsy Shop</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+    <p class="footer-copyright">&copy; 2026 Tooth Fairy Magic Co. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Mobile menu
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+
+    // Email signup form
+    // TODO: Connect to Mailchimp/Brevo/Kit when email service is chosen
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('signup-email').value;
+      if (email) {
+        // Placeholder: replace with actual email service integration
+        console.log('Email signup:', email);
+        document.getElementById('signup-form').style.display = 'none';
+        document.querySelector('.ty-signup-note').style.display = 'none';
+        document.getElementById('signup-success').style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+</html>
