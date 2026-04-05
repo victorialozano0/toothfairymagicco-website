@@ -3,9 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You for Your Order! | Tooth Fairy Magic Co.</title>
-  <meta name="description" content="Thank you for being part of the Tooth Fairy Magic family! Get 10% off your next order and join our community.">
-  <meta name="robots" content="noindex">
+  <title>Free Baby Tooth Chart | Track All 20 Teeth | Tooth Fairy Magic Co.</title>
+  <meta name="description" content="Download your FREE printable baby tooth chart! Track all 20 teeth with adorable kawaii characters. Perfect for first tooth milestones.">
+  <meta name="keywords" content="baby tooth chart free, tooth tracker printable, baby teeth chart, first tooth milestone, tooth fairy printable">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free Baby Tooth Chart — Track All 20 Teeth!">
+  <meta property="og:description" content="Download your FREE printable tooth chart with adorable kawaii characters. Perfect for tracking every tiny tooth milestone.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toothfairymagic.co/free-tooth-chart">
+
+  <!-- Pinterest -->
+  <meta property="og:image" content="https://toothfairymagic.co/images/og-tooth-chart.png">
+  <meta name="pinterest-rich-pin" content="true">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -165,26 +175,6 @@
       transform: translateY(-3px);
       box-shadow: 0 8px 25px rgba(155, 126, 216, 0.45);
     }
-    .btn-dashed {
-      background: var(--color-yellow);
-      color: var(--color-white);
-      border: 3px dashed rgba(255, 255, 255, 0.7);
-      box-shadow: 0 4px 15px rgba(255, 200, 91, 0.35);
-      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    }
-    .btn-dashed:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(255, 200, 91, 0.45);
-    }
-    .btn-outline {
-      background: var(--color-white);
-      color: var(--color-purple-1);
-      border: 3px dashed var(--color-purple-2);
-    }
-    .btn-outline:hover {
-      background: var(--color-bg-panel);
-      transform: translateY(-3px);
-    }
     .btn-pink {
       background: linear-gradient(135deg, var(--color-pink-1) 0%, var(--color-pink-2) 100%);
       color: white;
@@ -194,98 +184,120 @@
       transform: translateY(-3px);
       box-shadow: 0 8px 25px rgba(245, 163, 199, 0.45);
     }
+    .btn-big {
+      padding: 18px 48px;
+      font-size: 1.2rem;
+    }
 
     /* ══════════════════════════════════════
-       THANK YOU PAGE — HERO
+       HERO — Landing Page
     ══════════════════════════════════════ */
-    .ty-hero {
+    .lp-hero {
       text-align: center;
-      padding: 60px 24px 40px;
+      padding: 60px 24px 20px;
       background: linear-gradient(180deg, var(--color-bg-panel) 0%, var(--color-bg-main) 100%);
       position: relative;
       overflow: hidden;
     }
-    .ty-hero-img {
-      width: 280px;
-      margin: 0 auto 28px;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      animation: fadeInUp 0.6s ease-out;
-    }
-    .ty-hero h1 {
-      font-family: 'Fredoka One', cursive;
-      font-size: 2.4rem;
-      color: var(--color-text-heading);
-      line-height: 1.3;
-      margin-bottom: 12px;
-      animation: fadeInUp 0.6s ease-out 0.1s both;
-    }
-    .ty-hero .tagline {
-      font-size: 1.15rem;
-      color: var(--color-text-secondary);
-      font-weight: 600;
-      font-style: italic;
-      max-width: 520px;
-      margin: 0 auto;
-      animation: fadeInUp 0.6s ease-out 0.2s both;
-    }
-    .ty-floating {
+    .lp-hero .floating-deco {
       position: absolute;
       animation: floatSlow 8s ease-in-out infinite;
       pointer-events: none;
+      opacity: 0.15;
+      font-size: 3rem;
     }
-    .ty-floating--1 { top: 30px; left: 4%; width: 180px; opacity: 0.9; animation-delay: 0s; }
-    .ty-floating--2 { top: 50px; right: 8%; width: 50px; opacity: 0.2; animation-delay: 2s; }
-    .ty-floating--3 { bottom: 20px; left: 12%; width: 45px; opacity: 0.2; animation-delay: 4s; }
+    .lp-hero .floating-deco:nth-child(1) { top: 20px; left: 5%; animation-delay: 0s; }
+    .lp-hero .floating-deco:nth-child(2) { top: 40px; right: 8%; animation-delay: 2s; }
+    .lp-hero .floating-deco:nth-child(3) { bottom: 30px; left: 15%; animation-delay: 4s; }
+    .lp-hero .floating-deco:nth-child(4) { bottom: 20px; right: 12%; animation-delay: 1s; }
+
+    .lp-badge {
+      display: inline-block;
+      background: var(--color-mint);
+      color: var(--color-text-heading);
+      font-weight: 900;
+      font-size: 0.85rem;
+      padding: 8px 24px;
+      border-radius: 30px;
+      border: 3px dashed rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .lp-hero h1 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.8rem;
+      color: var(--color-text-heading);
+      line-height: 1.25;
+      margin-bottom: 16px;
+      animation: fadeInUp 0.6s ease-out 0.1s both;
+    }
+    .lp-hero h1 span {
+      color: var(--color-purple-1);
+    }
+    .lp-hero .subtitle {
+      font-size: 1.2rem;
+      color: var(--color-text-secondary);
+      font-weight: 600;
+      max-width: 560px;
+      margin: 0 auto 32px;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
 
     /* ══════════════════════════════════════
-       SECTIONS
+       PREVIEW IMAGE
     ══════════════════════════════════════ */
-    .ty-section {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ══════════════════════════════════════
-       EMAIL SIGNUP BOX
-    ══════════════════════════════════════ */
-    .ty-signup {
-      border: 3px dashed var(--color-pink-1);
-      border-radius: var(--radius-lg);
-      padding: 40px 32px;
-      text-align: center;
-      background: var(--color-pink-soft);
-      margin: 40px auto;
-      max-width: 600px;
+    .lp-preview {
+      max-width: 480px;
+      margin: 0 auto 40px;
       animation: fadeInUp 0.6s ease-out 0.3s both;
     }
-    .ty-signup h2 {
+    .lp-preview img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 4px dashed var(--color-purple-2);
+    }
+
+    /* ══════════════════════════════════════
+       SIGNUP FORM — Main CTA
+    ══════════════════════════════════════ */
+    .lp-signup {
+      max-width: 520px;
+      margin: 0 auto 48px;
+      padding: 44px 36px;
+      background: var(--color-white);
+      border: 3px dashed var(--color-pink-1);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      animation: fadeInUp 0.6s ease-out 0.4s both;
+    }
+    .lp-signup h2 {
       font-family: 'Fredoka One', cursive;
       font-size: 1.5rem;
       color: var(--color-text-heading);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
-    .ty-signup p {
+    .lp-signup .signup-sub {
       color: var(--color-text-secondary);
-      font-size: 1rem;
+      font-size: 0.95rem;
       margin-bottom: 24px;
-      line-height: 1.7;
     }
-    .ty-signup-form {
+    .lp-form {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      max-width: 420px;
-      margin: 0 auto;
+      gap: 14px;
     }
-    .ty-signup-form .ty-form-row {
+    .lp-form .form-row {
       display: flex;
       gap: 12px;
     }
-    .ty-signup-form input[type="email"],
-    .ty-signup-form input[type="text"],
-    .ty-signup-form input[type="date"] {
+    .lp-form input[type="email"],
+    .lp-form input[type="text"],
+    .lp-form input[type="date"] {
       flex: 1;
       padding: 14px 20px;
       border: 3px dashed var(--color-purple-2);
@@ -294,157 +306,217 @@
       font-size: 1rem;
       font-weight: 600;
       color: var(--color-text-body);
-      background: var(--color-white);
+      background: var(--color-bg-panel);
       outline: none;
       transition: var(--transition);
     }
-    .ty-signup-form input::placeholder {
+    .lp-form input::placeholder {
       color: var(--color-text-secondary);
       font-weight: 400;
     }
-    .ty-signup-form input:focus {
+    .lp-form input:focus {
       border-color: var(--color-purple-1);
       box-shadow: 0 0 0 4px rgba(155, 126, 216, 0.15);
+      background: var(--color-white);
     }
-    .ty-signup-form .ty-optional-label {
+    .lp-form .form-label {
       font-size: 0.8rem;
       color: var(--color-text-secondary);
       text-align: left;
       margin-top: 4px;
-      margin-bottom: -4px;
-      opacity: 0.8;
+      margin-bottom: -6px;
     }
-    .ty-signup-form button {
-      padding: 14px 28px;
-      white-space: nowrap;
+    .lp-form button {
+      width: 100%;
+      justify-content: center;
     }
-    .ty-signup-note {
+    .lp-form-note {
       font-size: 0.8rem;
       color: var(--color-text-secondary);
-      margin-top: 14px;
-      opacity: 0.8;
+      margin-top: 10px;
     }
-    .ty-signup-success {
+    .lp-signup-success {
       display: none;
-      padding: 20px;
-      background: var(--color-mint);
-      border: 3px dashed rgba(255,255,255,0.5);
-      border-radius: var(--radius-md);
-      color: var(--color-text-heading);
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    /* ══════════════════════════════════════
-       SOCIAL & SHOP LINKS
-    ══════════════════════════════════════ */
-    .ty-links {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      max-width: 600px;
-      margin: 32px auto;
-      padding: 0 24px;
-      animation: fadeInUp 0.6s ease-out 0.4s both;
-    }
-    .ty-link-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      padding: 28px 20px;
-      border-radius: var(--radius-md);
-      border: 3px dashed transparent;
-      text-decoration: none;
-      transition: var(--transition);
+      padding: 28px 24px;
       text-align: center;
     }
-    .ty-link-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-    .ty-link-card--shop {
-      background: var(--color-bg-panel);
-      border-color: var(--color-purple-2);
-    }
-    .ty-link-card--shop:hover { background: var(--color-purple-light); }
-    .ty-link-card--pinterest {
-      background: #FFF0F0;
-      border-color: #FFB3B3;
-    }
-    .ty-link-card--pinterest:hover { background: #FFE0E0; }
-    .ty-link-card--instagram {
-      background: var(--color-gold-soft);
-      border-color: var(--color-yellow);
-    }
-    .ty-link-card--instagram:hover { background: #FFE9A0; }
-    .ty-link-card--blog {
-      background: #E8FFF3;
-      border-color: var(--color-mint);
-    }
-    .ty-link-card--blog:hover { background: #D0F5E0; }
-    .ty-link-icon {
-      font-size: 2rem;
-    }
-    .ty-link-icon-img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-    }
-    .ty-link-card h3 {
-      font-family: 'Fredoka One', cursive;
-      font-size: 1rem;
-      color: var(--color-text-heading);
-    }
-    .ty-link-card p {
-      font-size: 0.85rem;
-      color: var(--color-text-secondary);
-      line-height: 1.5;
-    }
-
-    /* ══════════════════════════════════════
-       REVIEW SECTION
-    ══════════════════════════════════════ */
-    .ty-review {
-      border: 3px dashed var(--color-yellow);
-      border-radius: var(--radius-lg);
-      padding: 36px 32px;
-      text-align: center;
-      background: var(--color-gold-soft);
-      max-width: 600px;
-      margin: 40px auto;
-      animation: fadeInUp 0.6s ease-out 0.5s both;
-    }
-    .ty-review h2 {
+    .lp-signup-success h3 {
       font-family: 'Fredoka One', cursive;
       font-size: 1.4rem;
       color: var(--color-text-heading);
       margin-bottom: 10px;
     }
-    .ty-review p {
+    .lp-signup-success p {
       color: var(--color-text-body);
       font-size: 1rem;
-      margin-bottom: 8px;
+      margin-bottom: 20px;
       line-height: 1.7;
     }
-    .ty-review-steps {
-      text-align: left;
-      max-width: 380px;
-      margin: 20px auto 0;
-      font-size: 0.95rem;
-      line-height: 2;
+    .lp-signup-success .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      background: linear-gradient(135deg, var(--color-mint) 0%, #90DFC0 100%);
+      color: var(--color-text-heading);
+      font-weight: 900;
+      font-size: 1.1rem;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 15px rgba(181, 234, 215, 0.5);
+      transition: var(--transition);
+      text-decoration: none;
     }
-    .ty-review-steps li {
+    .lp-signup-success .download-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(181, 234, 215, 0.6);
+    }
+
+    /* ══════════════════════════════════════
+       BENEFITS
+    ══════════════════════════════════════ */
+    .lp-benefits {
+      max-width: 700px;
+      margin: 0 auto 60px;
+      padding: 0 24px;
+    }
+    .lp-benefits h2 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.6rem;
+      color: var(--color-text-heading);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .benefit-card {
+      background: var(--color-white);
+      border: 3px dashed var(--color-purple-2);
+      border-radius: var(--radius-md);
+      padding: 28px 20px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .benefit-card:nth-child(2) { border-color: var(--color-pink-1); }
+    .benefit-card:nth-child(3) { border-color: var(--color-yellow); }
+    .benefit-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+    .benefit-card h3 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1rem;
+      color: var(--color-text-heading);
+      margin-bottom: 8px;
+    }
+    .benefit-card p {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════
+       WHAT'S INSIDE
+    ══════════════════════════════════════ */
+    .lp-inside {
+      max-width: 600px;
+      margin: 0 auto 60px;
+      padding: 40px 36px;
+      background: var(--color-gold-soft);
+      border: 3px dashed var(--color-yellow);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    .lp-inside h2 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.4rem;
+      color: var(--color-text-heading);
+      margin-bottom: 20px;
+    }
+    .inside-list {
       list-style: none;
-      padding-left: 28px;
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .inside-list li {
+      padding: 10px 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--color-text-body);
+      border-bottom: 2px dashed var(--color-gold-soft);
+      padding-left: 32px;
       position: relative;
     }
-    .ty-review-steps li::before {
-      content: attr(data-step);
+    .inside-list li::before {
+      content: attr(data-icon);
       position: absolute;
       left: 0;
-      font-weight: 900;
-      color: var(--color-yellow);
+      font-size: 1.2rem;
+    }
+
+    /* ══════════════════════════════════════
+       NEXT STEP TEASER
+    ══════════════════════════════════════ */
+    .lp-next {
+      max-width: 600px;
+      margin: 0 auto 60px;
+      padding: 40px 36px;
+      background: var(--color-pink-soft);
+      border: 3px dashed var(--color-pink-1);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    .lp-next h2 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.4rem;
+      color: var(--color-text-heading);
+      margin-bottom: 10px;
+    }
+    .lp-next p {
+      color: var(--color-text-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .lp-next .price-badge {
+      display: inline-block;
+      background: var(--color-white);
+      border: 3px dashed var(--color-pink-1);
+      border-radius: var(--radius-lg);
+      padding: 12px 28px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.3rem;
+      color: var(--color-pink-1);
+    }
+    .lp-next .price-badge .old-price {
+      text-decoration: line-through;
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+      font-family: 'Nunito', sans-serif;
+      margin-right: 6px;
+    }
+
+    /* ══════════════════════════════════════
+       TRUST
+    ══════════════════════════════════════ */
+    .lp-trust {
+      text-align: center;
+      padding: 0 24px 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .lp-trust p {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.7;
     }
 
     /* ══════════════════════════════════════
@@ -456,7 +528,7 @@
       text-align: center;
       padding: 50px 24px 30px;
       position: relative;
-      margin-top: 60px;
+      margin-top: 20px;
     }
     .footer::before {
       content: '';
@@ -516,12 +588,13 @@
        RESPONSIVE
     ══════════════════════════════════════ */
     @media (max-width: 768px) {
-      .ty-hero h1 { font-size: 1.8rem; }
-      .ty-hero-img { width: 220px; }
-      .ty-signup { padding: 32px 24px; }
-      .ty-signup-form { flex-direction: column; }
-      .ty-signup-form .ty-form-row { flex-direction: column; }
-      .ty-links { grid-template-columns: 1fr; padding: 0 24px; }
+      .lp-hero h1 { font-size: 2rem; }
+      .lp-hero .subtitle { font-size: 1.05rem; }
+      .lp-preview { max-width: 340px; }
+      .lp-signup { padding: 32px 24px; margin-left: 16px; margin-right: 16px; }
+      .benefits-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+      .lp-form .form-row { flex-direction: column; }
+      .lp-inside, .lp-next { margin-left: 16px; margin-right: 16px; padding: 32px 24px; }
       .nav-links { display: none; }
       .nav-links.open {
         display: flex;
@@ -538,11 +611,9 @@
       .menu-toggle { display: block; }
     }
     @media (max-width: 480px) {
-      .ty-hero h1 { font-size: 1.5rem; }
-      .ty-hero .tagline { font-size: 1rem; }
-      .ty-signup h2 { font-size: 1.3rem; }
-      .ty-review { padding: 28px 20px; }
-      .btn { padding: 10px 20px; font-size: 0.9rem; }
+      .lp-hero h1 { font-size: 1.7rem; }
+      .lp-signup h2 { font-size: 1.3rem; }
+      .btn-big { padding: 14px 32px; font-size: 1.05rem; }
     }
   </style>
 </head>
@@ -568,74 +639,103 @@
   </header>
 
   <!-- ═══════════ HERO ═══════════ -->
-  <section class="ty-hero">
-    <img src="images/ty-fairy.png" alt="Thank you from the Tooth Fairy" class="ty-floating ty-floating--1">
-    <img src="images/star-kawaii.png" alt="" class="ty-floating ty-floating--2">
-    <img src="images/heart-kawaii.png" alt="" class="ty-floating ty-floating--3">
+  <section class="lp-hero">
+    <span class="floating-deco">&#10024;</span>
+    <span class="floating-deco">&#129463;</span>
+    <span class="floating-deco">&#11088;</span>
+    <span class="floating-deco">&#128171;</span>
 
-    <img src="images/ty-hero.png" alt="Thank you for your order" class="ty-hero-img">
-    <h1>Thank You for Being Part<br>of the Magic!</h1>
-    <p class="tagline">Your order is on its way to make a tiny tooth moment unforgettable.</p>
+    <div class="lp-badge">100% Free — Instant Download</div>
+
+    <h1>Track Every Tiny Tooth<br>With <span>a Little Magic</span></h1>
+    <p class="subtitle">A beautiful printable chart to celebrate and record all 20 of your baby's teeth — from the very first one!</p>
   </section>
 
-  <!-- ═══════════ EMAIL SIGNUP ═══════════ -->
-  <div class="ty-section">
-    <div class="ty-signup" id="signup-box">
-      <h2>Get 10% Off Your Next Order</h2>
-      <p>Join our fairy family and be the first to see new designs, exclusive deals, and milestone celebration ideas.</p>
-      <form class="ty-signup-form" id="signup-form" method="POST" action="https://4872fe1a.sibforms.com/serve/MUIFAKgJXnjs-FwTokO-wAgRwgdL4G8fQJ6Go1PKU3GeJrf4oqJgtoxDgPgjcGNL99KsnmAfwHfnKEnUu1_LnZmFuBCcMCtr0n1zLWeRpVmwJ2shx90pMbsnMiBl9-s4HXIQsK4xj4XpvpEE2PZ6J2qH8Wmkl-k95xBDeAOGjX5lJp000kGx_SdXnGbzfsLQpK8K_ccZiPI4nbLusA==">
-        <div class="ty-form-row">
-          <input type="email" id="EMAIL" name="EMAIL" placeholder="your@email.com" autocomplete="off" data-required="true" required>
-          <button type="submit" class="btn btn-pink">Join</button>
-        </div>
-        <p class="ty-optional-label">Optional — helps us send milestone reminders at the right time:</p>
-        <div class="ty-form-row">
-          <input type="text" name="CHILD_NAME" placeholder="Child's name">
+  <!-- ═══════════ PREVIEW ═══════════ -->
+  <div class="lp-preview">
+    <img src="images/tooth-chart-preview.png" alt="Free Baby Tooth Chart Preview — Track all 20 teeth with kawaii characters">
+  </div>
+
+  <!-- ═══════════ SIGNUP FORM ═══════════ -->
+  <div class="lp-signup" id="signup-box">
+    <div id="signup-form-wrapper">
+      <h2>Get Your Free Tooth Chart</h2>
+      <p class="signup-sub">Enter your email and we'll send it right over — plus milestone tips along the way!</p>
+      <form class="lp-form" id="signup-form" method="POST" action="https://4872fe1a.sibforms.com/serve/MUIFAKgJXnjs-FwTokO-wAgRwgdL4G8fQJ6Go1PKU3GeJrf4oqJgtoxDgPgjcGNL99KsnmAfwHfnKEnUu1_LnZmFuBCcMCtr0n1zLWeRpVmwJ2shx90pMbsnMiBl9-s4HXIQsK4xj4XpvpEE2PZ6J2qH8Wmkl-k95xBDeAOGjX5lJp000kGx_SdXnGbzfsLQpK8K_ccZiPI4nbLusA==">
+        <input type="email" id="EMAIL" name="EMAIL" placeholder="Your email address" autocomplete="off" data-required="true" required>
+        <p class="form-label">Optional — helps us send the right milestones at the right time:</p>
+        <div class="form-row">
+          <input type="text" name="CHILD_NAME" placeholder="Child's first name">
           <input type="date" name="CHILD_BIRTHDAY" placeholder="Child's birthday">
         </div>
-        <!-- Brevo honeypot anti-spam -->
+        <!-- Brevo honeypot -->
         <input type="text" name="email_address_check" value="" style="display:none !important;">
         <input type="hidden" name="locale" value="en">
         <input type="hidden" name="html_type" value="simple">
+        <input type="hidden" name="LEAD_SOURCE" value="free_tooth_chart">
+        <button type="submit" class="btn btn-pink btn-big">Send Me the Free Chart</button>
       </form>
-      <p class="ty-signup-note">No spam, just magic. Unsubscribe anytime.</p>
-      <div class="ty-signup-success" id="signup-success">
-        You're in! Check your email for your 10% off code.
+      <p class="lp-form-note">No spam, just magic. Unsubscribe anytime.</p>
+    </div>
+    <div class="lp-signup-success" id="signup-success">
+      <h3>Check Your Email!</h3>
+      <p>Your free Tooth Chart is on its way. While you wait, here's a little something extra for your first order:</p>
+      <a href="https://www.etsy.com/shop/ToothFairyMagicCo" class="download-link">
+        Use code MAGIC10 for 10% off
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══════════ BENEFITS ═══════════ -->
+  <section class="lp-benefits">
+    <h2>Why Parents Love This Chart</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">&#129463;</div>
+        <h3>All 20 Teeth</h3>
+        <p>Track upper and lower teeth with dates — never forget when each one appeared!</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">&#127912;</div>
+        <h3>Adorable Design</h3>
+        <p>Kawaii characters make it fun to fill in. Frame it or put it in the baby book!</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">&#128424;</div>
+        <h3>Print at Home</h3>
+        <p>High-quality PDF you can print instantly. Letter size, beautiful on any printer.</p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- ═══════════ SOCIAL & SHOP LINKS ═══════════ -->
-  <div class="ty-links">
-    <a href="https://www.etsy.com/shop/ToothFairyMagicCo" target="_blank" rel="noopener" class="ty-link-card ty-link-card--shop">
-      <img src="images/icon-shop.png" alt="Shop" class="ty-link-icon-img">
-      <h3>Browse More Outfits</h3>
-      <p>Matching family sets, bundles &amp; new designs</p>
-    </a>
-    <a href="https://www.pinterest.com/toothfairymagic/" target="_blank" rel="noopener" class="ty-link-card ty-link-card--pinterest">
-      <img src="images/icon-pinterest.png" alt="Pinterest" class="ty-link-icon-img">
-      <h3>Follow on Pinterest</h3>
-      <p>Milestone ideas, gift guides &amp; inspiration</p>
-    </a>
-    <a href="index.html#blog" class="ty-link-card ty-link-card--blog">
-      <img src="images/icon-blog.png" alt="Blog" class="ty-link-icon-img">
-      <h3>Read Our Blog</h3>
-      <p>Tooth fairy letters, celebration tips &amp; more</p>
-    </a>
-  </div>
+  <!-- ═══════════ WHAT'S INSIDE ═══════════ -->
+  <section class="lp-inside">
+    <h2>What's Inside Your Free PDF</h2>
+    <ul class="inside-list">
+      <li data-icon="&#129463;">Full tooth map — upper &amp; lower jaw with all 20 spots</li>
+      <li data-icon="&#128197;">Date tracker — record when each tooth appeared</li>
+      <li data-icon="&#128248;">Photo reminder — spot for your baby's first tooth selfie</li>
+      <li data-icon="&#10024;">Kawaii characters — Bear, Bunny, Unicorn &amp; friends</li>
+      <li data-icon="&#128076;">Print-ready — Letter size PDF, instant download</li>
+    </ul>
+  </section>
 
-  <!-- ═══════════ REVIEW REQUEST ═══════════ -->
-  <div class="ty-section">
-    <div class="ty-review">
-      <h2>Love Your Order?</h2>
-      <p>A review helps other families find us and makes our day! It only takes a moment:</p>
-      <ol class="ty-review-steps">
-        <li data-step="1. ">Open Etsy and go to <strong>Your Account</strong></li>
-        <li data-step="2. ">Tap <strong>Purchases &amp; Reviews</strong></li>
-        <li data-step="3. ">Find your order and tap <strong>Leave a Review</strong></li>
-      </ol>
+  <!-- ═══════════ NEXT STEP TEASER ═══════════ -->
+  <section class="lp-next">
+    <h2>Loving the Chart? Make It Official!</h2>
+    <p>Celebrate the first tooth with a personalized certificate — signed by the Tooth Fairy herself. The perfect keepsake to pair with your chart.</p>
+    <div class="price-badge">
+      <span class="old-price">$3.99</span> $1.99
     </div>
-  </div>
+    <p style="margin-top: 16px; font-size: 0.9rem; color: var(--color-text-secondary);">
+      <a href="https://www.etsy.com/shop/ToothFairyMagicCo" style="color: var(--color-pink-1); font-weight: 700; text-decoration: underline;">See it on Etsy</a> — personalized with your baby's name &amp; date
+    </p>
+  </section>
+
+  <!-- ═══════════ TRUST ═══════════ -->
+  <section class="lp-trust">
+    <p>Made with love by Tooth Fairy Magic Co. — a small family shop turning tiny teeth into big memories. Every chart, every certificate, every outfit is designed to make your milestone moments unforgettable.</p>
+  </section>
 
   <!-- ═══════════ FOOTER ═══════════ -->
   <footer class="footer">
@@ -652,21 +752,21 @@
 
   <script>
     // Mobile menu
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
         document.querySelector('.nav-links').classList.remove('open');
       });
     });
 
-    // Brevo email signup form
+    // Signup form — submit to Brevo + show success
     document.getElementById('signup-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      const form = e.target;
-      const email = document.getElementById('EMAIL').value;
+      var form = e.target;
+      var email = document.getElementById('EMAIL').value;
       if (!email) return;
 
-      const btn = form.querySelector('button[type="submit"]');
-      btn.textContent = '...';
+      var btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending...';
       btn.disabled = true;
 
       fetch(form.action, {
@@ -674,13 +774,20 @@
         body: new FormData(form),
         mode: 'no-cors'
       }).then(function() {
-        form.style.display = 'none';
-        document.querySelector('.ty-signup-note').style.display = 'none';
+        document.getElementById('signup-form-wrapper').querySelector('form').style.display = 'none';
+        document.getElementById('signup-form-wrapper').querySelector('.signup-sub').style.display = 'none';
+        document.getElementById('signup-form-wrapper').querySelector('h2').style.display = 'none';
+        document.querySelector('.lp-form-note').style.display = 'none';
         document.getElementById('signup-success').style.display = 'block';
+
+        // Track conversion (for future analytics)
+        if (typeof gtag === 'function') {
+          gtag('event', 'sign_up', { method: 'free_tooth_chart' });
+        }
       }).catch(function() {
-        btn.textContent = 'JOIN';
+        btn.textContent = 'Send Me the Free Chart';
         btn.disabled = false;
-        alert('Something went wrong. Please try again.');
+        alert('Something went wrong. Please try again!');
       });
     });
   </script>
